@@ -9,6 +9,11 @@ $('document').ready(function(){
 	});
 
 	$('#search-link').click(function(){
-		$('#search-form').submit();
+		if($('#search-input').val() != "")
+		{
+			alert("SEARCHING: "+$('#search-input').val());
+			$('#search-form').submit();
+		}
+		
 	});
 });
