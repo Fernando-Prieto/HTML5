@@ -4,6 +4,7 @@ body {
 }
 
 nav {
+	margin-top: 10px;
 	margin-bottom: 20px;
 }
 
@@ -16,6 +17,14 @@ td {
 	text-align: left;
 }
 
+a {
+	color: #428bca;
+	text-decoration: none;
+}
+
+p {
+	margin: 0px;
+}
 tr > span {
 	float: right;
 }
@@ -36,6 +45,9 @@ tr > span {
 	padding: 5px;
 	border: 1px solid #000000;
 }
+.footer-content {
+	width: 100% !Important;
+}
 
 .brand {
 	font-size: 35px;
@@ -46,14 +58,26 @@ tr > span {
 	text-align: center;
 }
 
-.row-nav {
+.nav-social-group {
+	float:right;
+	margin-left: 30px;
+	text-align: center;
+}
+
+.row {
+	width: 80%;
+	margin: 0px auto;
+}
+
+.row-nav-buttons {
 	box-shadow: 3px 3px 5px #000000;
 }
 
 .col-nav {
 	border: 1px solid #000000;
 	text-align: center;
-	padding: 0px;
+	padding: 2px;
+	font-size: bold;
 }
 
 .col-nav:hover {
@@ -72,12 +96,16 @@ tr > span {
 
 .col-nav.active > a {
 	color: #FFFFFF;
-	font-weight: bold;
 }
 
 .row-topNew {
 	text-align: center;
 	margin-bottom: 40px;
+}
+
+.news-group {
+	margin-left:20px;
+	margin-right:20px;
 }
 
 .topNew {
@@ -87,7 +115,7 @@ tr > span {
 
 .row-bottomNew {
 	text-align: center;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 
 .bottomNew {
@@ -122,7 +150,7 @@ tr > span {
 	text-align:left;
 	word-wrap:break-word;
 	padding: 0px;
-	max-height: 405px;
+	max-height: 409px;
 	overflow: auto;
 }
 
@@ -145,14 +173,12 @@ tr > span {
 	font-weight: bold;
 	font-size: 20px;
 	text-align: left;
-	padding-bottom: 5px;
+	padding-top: 4.5px;
+	padding-bottom: 4.5px;
 }
 
 .col-video {
 	border: 1px solid #000000;
-	padding: 5px;
-}
-
-.col-table {
-	max-height: 310px;
+	padding-right: 5px;
+	padding-left: 5px;
 }
