@@ -1,23 +1,11 @@
-var Movie = function (title, year) {
-
-    var newMovie = new Movies(title, year);
-
-    observer.make(newMovie, movieObserver.handler); //movies object is a new publisher
-    newMovie.addSubscriber(movieObserver.handler); //the publisher adds its subscriber.
-
-    socialMixin.call(newMovie);
-
-    return newMovie;
-
-}
-
 // Constructs a new Movie
 /*
-var Movies = function (title, year) {
+var Movie = function (title, year) {
 
     var attr =  {
                     title: title || '',
-                     year: year || 0
+                    year: year || 0,
+                    actors: []
                 };
 
     this.set = function (attrte, val) {
@@ -43,57 +31,65 @@ var Movies = function (title, year) {
         console.log('    '+this.get('title') + ' stopped.');      
         this.publish({evt:'stop', title: this.get('title'), year: this.get('year')});
     };  
+
+    observer.make(this); //movies object is a new publisher
+    this.addSubscriber(movieObserver.handler); //the publisher adds its subscriber.
+
+    socialMixin.call(this);
 }*/
 
 
 /*
     ******* MODULE *******
     REF: http://shop.oreilly.com/product/9780596806767.do?sortby=publicationDate -> JavaScript Patterns
-    Build Better Applications with Coding and Design Patterns. / Module Pattern / Revealing Module Pattern / page 99
+    Build Better Applications with Coding and Design Patterns. / Module Pattern / Revealing Module Pattern / page 100
 */
-var Movies = function (title, year) {
+var Movie = (function () {
 
     //Private attributes
+    var attr, 
 
-    var attr =  {
+    // Private methods
+    Constr = function  (title,year) {
+        attr = {
                     title: title || '',
                     year: year || 0,
                     actors: []
-                },
+                };
 
-    // Private methods
+        observer.make(this); //movies object is a new publisher
+        this.addSubscriber(movieObserver.handler); //the publisher adds its subscriber.
 
-    set = function (attrte, val) {
+        socialMixin.call(this);
+
+    };  
+    // end var
+    
+    Constr.prototype.constructor= Constr;
+
+    Constr.prototype.set = function (attrte, val) {
                 if(attrte in attr)
                 {
                    attr[attrte] = val;
                 }
-            },
+            };
 
-    get = function (attrte) {
+    Constr.prototype.get = function (attrte) {
                 if(attrte in attr)
                 {
                    return attr[attrte];
                 }
-            },
+            };
 
-    play = function() { 
+    Constr.prototype.play = function() { 
         console.log('    Playing '+this.get('title')+'...');     
         this.publish({evt:'play', title: this.get('title'), year: this.get('year')});       
-    },
+    };
 
-    stop = function() {
+    Constr.prototype.stop = function() {
         console.log('    '+this.get('title') + ' stopped.');   
         this.publish({evt:'stop', title: this.get('title'), year: this.get('year')});
-    };
-    // end var
+    };    
 
-    // revealing public API
-    
-    return  {                               
-                set: set,
-                get: get,
-                play: play,
-                stop: stop,
-            }
-}
+    return  Constr;
+}());
