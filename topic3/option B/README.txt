@@ -1,1 +1,1 @@
-Different from 'A' in movie.js and downloadableMovie.js
+Different from 'option A' in movie.js and downloadableMovie.js
