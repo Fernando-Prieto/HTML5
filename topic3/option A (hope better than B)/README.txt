@@ -1,1 +1,1 @@
-Changes on movie.js and downloadableMovie.js
+Different from 'B' in movie.js and downloadableMovie.js
