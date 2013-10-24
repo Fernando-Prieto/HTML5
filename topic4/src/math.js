@@ -1,16 +1,28 @@
 var MathAPI = (function() {
 
   function round(value, radix){
-    radix = radix;
-    return Math.round(value / radix) * radix;
+
+  	if(radix <= 0)
+  		throw new Error("radix <= 0");
+
+    radix = Math.pow(10,radix);
+    return Math.round(value * radix) / radix;
   }
 
   function ceil(val, step){
+
+  	if(step <= 0)
+  		throw new Error("step <= 0");
+
     step = Math.abs(step);
     return Math.ceil(val / step) * step;
   }
 
   function clamp(val, min, max){
+
+  	if(min >= max)
+  		throw new Error("min >= max");
+
     return val < min? min : (val > max? max : val);
   }
 
