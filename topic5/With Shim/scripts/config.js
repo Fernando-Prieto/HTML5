@@ -5,10 +5,8 @@ require.config({
     },
     'shim': {
     			'jQuery': {
-		            //These script dependencies should be loaded before loading
-		            //backbone.js
 		            deps: ['jquery'],
-		            //Once loaded, use the global 'Backbone' as the
+		            //Once loaded, use the global 'jQueryModule' as the
 		            //module value.
 		            exports: 'jQueryModule'
 		        }
