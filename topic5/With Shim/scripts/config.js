@@ -4,7 +4,14 @@ require.config({
       			'modules': '../modules'
     },
     'shim': {
-	    		'jquery.quotes': ['jquery']
+    			'jQuery': {
+		            //These script dependencies should be loaded before loading
+		            //backbone.js
+		            deps: ['jquery'],
+		            //Once loaded, use the global 'Backbone' as the
+		            //module value.
+		            exports: 'jQueryModule'
+		        }
 	}
 });
 

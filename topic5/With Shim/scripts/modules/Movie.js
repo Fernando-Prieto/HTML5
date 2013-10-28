@@ -1,4 +1,4 @@
-define(function() {
+define(['modules/Director'], function() {
     
     //Private attributes
     var attr, 

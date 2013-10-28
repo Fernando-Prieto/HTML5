@@ -1,5 +1,5 @@
-require(["modules/Movie","modules/Director", 'jquery.quotes'],
-    function(Movie, Director) {
+require(["modules/Movie","modules/Director", 'jquery'],
+    function(Movie, Director, jQueryModule) {
 
         var topGun = new Movie('Top Gun', 1986);
 
@@ -13,7 +13,6 @@ require(["modules/Movie","modules/Director", 'jquery.quotes'],
 
 		topGun.set('director',tony);
 
-		$('#quotes-section').quotes(topGun.get('director').speak());
+		jQueryModule('#quotes-section').append('<p>'+topGun.get('director').speak()+'</p>');
 	
-    }
-);
+});

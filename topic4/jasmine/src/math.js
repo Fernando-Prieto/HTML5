@@ -20,13 +20,14 @@ var MathAPI = (function() {
 
   function clamp(val, min, max){
 
-  	if(min >= max)
-  		throw new Error("min >= max");
-
-    return val < min? min : (val > max? max : val);
+  	return val < min? min : (val > max? max : val);
   }
 
   function countSteps(val, step, overflow){
+
+    if(step <= 0)
+      throw new Error("step <= 0");
+
     val = Math.floor(val / step);
 
     if (overflow) {
@@ -37,6 +38,10 @@ var MathAPI = (function() {
   }
 
   function floor(val, step){
+
+    if(step <= 0)
+      throw new Error("step <= 0");
+
     step = Math.abs(step);
     return Math.floor(val / step) * step;
   }
@@ -54,6 +59,11 @@ var MathAPI = (function() {
   }
 
   function norm(val, min, max){
+
+    if(min == max)
+    {
+      throw new Error("min == max");
+    }
     return (val - min) / (max - min);
   }
 
