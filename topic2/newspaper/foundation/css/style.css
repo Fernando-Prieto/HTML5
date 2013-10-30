@@ -85,6 +85,12 @@ tr > span {
 	margin-bottom: 40px;
 }
 
+.topNew-image{
+	min-height: 200px;
+	width: 100%;
+	border: 1px solid #000000;
+}
+
 .topNew {
 	min-height: 200px;
 	width: 100%;
@@ -98,6 +104,12 @@ tr > span {
 .bottomNew {
 	min-height: 300px;
 	width: 100%;
+}
+
+.bottomNew-image{
+	min-height: 300px;
+	width: 100%;
+	border: 1px solid #000000;
 }
 
 .topNewCaption {
