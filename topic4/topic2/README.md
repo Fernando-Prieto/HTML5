@@ -1,5 +1,5 @@
 REF:		
-			https://github.com/gruntjs/grunt-contrib-cssmin
+			https://github.com/gruntjs/grunt-contrib-cssmin \n
 			https://github.com/gruntjs/grunt-contrib-imagemin
 
 CONSOLE	COMMANDS:		
