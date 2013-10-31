@@ -1,0 +1,44 @@
+header {
+	color: #000000;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: center;
+}
+
+footer {
+	text-align: center;
+}
+
+.profile-image {
+	border: 20px solid #E3E3E3;
+}
+
+.profile-name {
+	color: #000000;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.tab-content {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.at {
+	color: #000000;
+	font-weight: bold;
+	font-size: 16px;
+}
+.period {
+	color: #C9C9C9;
+}
+
+.line {
+	border-top: 2px solid #C9C9C9;
+}
+
+.section {
+	padding-bottom: 20px;
+}

@@ -1,0 +1,62 @@
+{
+	"personalData": {
+					"name": "Fernando Prieto",
+					"birth": "March 20, 1990",
+					"city": "Río Colorado, Río Negro, Argentina",
+					"pic": "fernando-prieto-pic.jpg"
+	},
+
+	"actualJob": {
+					"title": "Advanced Student",
+					"at": "Universidad Nacional del Sur"
+	},
+
+	"education":[
+					{
+	                	"title": "Bachiller con capacitación laboral en auxiliar de laboratorio",
+		                "at": "Instituto Privado Gustavo Martinez Zuviría",
+		                "period": "200? - 2007"
+		        	},
+
+					{
+						"title": "Computer Systems Engineering",
+		                "at": "Universidad Nacional del Sur (UNS)",
+		                "period": "2008 - Today"
+	                }	                
+   	],
+
+   	"courses":[
+   					{
+   						"title": "Software Libre", 
+   						"desc":"by Richard Stallman"
+   					},
+
+   					{
+						"title": "TECH TOUR 2011 - Gira de actualización informática",
+						"desc": ""
+					},
+
+					{
+						"title": "XVI Escuela Internacional de Informática - CENTRO DE CÓMPUTOS: Tecnologías e Implementaciones en Sistemas de Tipo UNIX",
+						"desc": "CACIC 2012"
+   					}
+   	],
+
+   	"experience":[
+   					{
+   						"title": "Student",
+   						"area": "Computer Systems Engineering",
+		                "at": "Universidad Nacional del Sur (UNS)",
+		                "period": "2008 - Today"
+	                }
+   	],
+
+   	"languages": [
+   					{
+	                	"lang": "Spanish"
+	                },
+	                {
+                		"lang": " English"
+       				}
+	]
+}

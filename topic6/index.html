@@ -1,0 +1,568 @@
+﻿<!doctype html>
+<head>
+	<title>HTML5 - Topic 6</title>
+	<meta charset="utf-8">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="style.css">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+	<script src="lib/handlebars.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/dust/dist/dust-full-0.3.0.min.js"></script>
+	<script src="script.js"></script>
+	
+</head>
+<body>
+	<header class="center">
+		Topic 6	
+	</header>
+	<div class="container">
+		<ul id="myTab" class="nav nav-tabs">
+			<li class="active">
+				<a href="#handlebars" data-toggle="tab">Handlebars</a>
+			</li>
+			<li>
+				<a href="#underscore" data-toggle="tab">Underscore</a>
+			</li>
+			<li>
+				<a href="#dust" data-toggle="tab">Dust</a>
+			</li>
+		</ul>		
+		<div class="tab-content">
+
+		<!-- HANDLEBARS -->
+
+			<div id="handlebars" class="tab-pane fade active in">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div  class="row tab-pane fade active in">
+							<div id="handlebars-column" class="col-md-12">
+								<!-- CONTENT HERE -->	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- UNDERSCORE -->
+		
+			<div id="underscore" class="tab-pane fade">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div  class="row tab-pane fade active in">
+							<div id="underscore-column" class="col-md-12">
+								<!-- CONTENT HERE -->	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- DUST -->
+		
+			<div id="dust" class="tab-pane fade">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div  class="row tab-pane fade active in">
+							<div id="dust-column" class="col-md-12">
+								<!-- CONTENT HERE -->	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="center">
+		<span>© 2013 Fernando Prieto. All rights reserved.</span>		
+	</footer>
+
+<!-- TEMPLATES -->
+	<!-- Handlebars -->
+	<script id="handlebarsTemplate" type="text/x-handlebars-template">
+		<div class="row">
+			<div class="col-md-4">
+				<div >
+					<img src="data/{{personalData.pic}}" class="profile-image" alt="Profile img">
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-12 profile-name">
+						{{personalData.name}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						{{actualJob.title}} - {{actualJob.at}}
+					</div>
+				</div>
+
+			</div>				
+		</div>
+		<div class="row">
+			<div class="col-md-12 section">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-list-alt"></span>  Experience</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						{{#experience}}
+							<div class="row">
+								<div class="col-md-12 at">
+								{{title}} 
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								{{at}} 
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 period">
+								{{period}} 
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								{{area}} 
+								</div>
+							</div>
+						{{/experience}} 
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row section line">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-book"></span>  Education</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						{{#education}}
+							<div class="row">
+								<div class="col-md-12 at">
+								{{at}} 
+								</div>												
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								{{title}} 
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 period">
+								{{period}} 
+								</div>
+							</div>
+							<p></p>
+						{{/education}} 
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="row section line">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-bookmark"></span>  Courses</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">										
+						<ul>
+							{{#courses}}
+								<li>
+									{{title}} - {{desc}}
+								</li>
+							{{/courses}}
+						</ul>												 
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="row section line">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-globe"></span>  Languages</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<ul>
+							{{#languages}}
+								<li>
+									{{lang}}
+								</li>
+							{{/languages}}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row section line">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-inbox"></span>  Additional Information</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-2 period">
+							Residence
+							</div>
+							<div class="col-md-10">
+							{{personalData.city}} 
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2 period">
+							Birthday 
+							</div>
+							<div class="col-md-10">
+							{{personalData.birth}} 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<!-- Underscore -->
+	<script id="underscoreTemplate" type="text/underscoreTemplate">
+		<div class="row">
+			<div class="col-md-4">
+				<div >
+					<img src="data/<%=personalData.pic %>" class="profile-image" alt="Profile img">
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-12 profile-name">
+						<%= personalData.name %> 
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<%= actualJob.title %> - <%= actualJob.at %>
+					</div>
+				</div>
+
+			</div>				
+		</div>
+		<div class="row">
+			<div class="col-md-12 section">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-list-alt"></span>  Experience</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<% _.each( experience, function(exp){ %>
+							<div class="row">
+								<div class="col-md-12 at">
+								<%= exp.title %>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								<%= exp.at %>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 period">
+								<%= exp.period %>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								<%= exp.area %>
+								</div>
+							</div>
+						<% }); %> 
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row section line">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-book"></span>  Education</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<% _.each( education, function(edu){ %>
+							<div class="row">
+								<div class="col-md-12 at">
+								<%= edu.at %> 
+								</div>												
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								<%= edu.title %>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 period">
+								<%= edu.period %>
+								</div>
+							</div>
+							<p></p>
+						<% }); %> 
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="row section line">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-bookmark"></span>  Courses</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">										
+						<ul>
+							<% _.each(courses, function(course){ %>
+								<li>
+									<%= course.title %> - <%= course.desc %>
+								</li>
+							<% }); %>
+						</ul>												 
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="row section line">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-globe"></span>  Languages</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<ul>
+							<% _.each(languages, function(language){ %>
+								<li>
+									<%= language.lang %>
+								</li>
+							<% }); %>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row section line">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-inbox"></span>  Additional Information</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-2 period">
+							Residence
+							</div>
+							<div class="col-md-10">
+							<%= personalData.city %> 
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2 period">
+							Birthday 
+							</div>
+							<div class="col-md-10">
+							<%= personalData.birth %> 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<!-- Dust -->
+	<script id="dustTemplate" type="text/dustTemplate">
+		<div class="row">
+			<div class="col-md-4">
+				<div >
+					<img src="data/{personalData.pic}" class="profile-image" alt="Profile img">
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-12 profile-name">
+						{personalData.name}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						{actualJob.title} - {actualJob.at}
+					</div>
+				</div>
+
+			</div>				
+		</div>
+		<div class="row">
+			<div class="col-md-12 section">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-list-alt"></span>  Experience</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						{#experience}
+							<div class="row">
+								<div class="col-md-12 at">
+								{title}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								{at}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 period">
+								{period}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								{area}
+								</div>
+							</div>
+						{/experience} 
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row section line">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-book"></span>  Education</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						{#education}
+							<div class="row">
+								<div class="col-md-12 at">
+								{at}
+								</div>												
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								{title} 
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 period">
+								{period} 
+								</div>
+							</div>
+							<p></p>
+						{/education}
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="row section line">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-bookmark"></span>  Courses</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">										
+						<ul>
+							{#courses}
+								<li>
+									{title} - {desc}
+								</li>
+							{/courses}
+						</ul>												 
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="row section line">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-globe"></span>  Languages</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<ul>
+							{#languages}
+								<li>
+									{lang}
+								</li>
+							{/languages}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row section line">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><span class="glyphicon glyphicon-inbox"></span>  Additional Information</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-2 period">
+							Residence
+							</div>
+							<div class="col-md-10">
+							{personalData.city} 
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2 period">
+							Birthday 
+							</div>
+							<div class="col-md-10">
+							{personalData.birth}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+
+</body>
