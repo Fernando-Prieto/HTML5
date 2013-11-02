@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>HTML5 - Topic 7</title>
+	<meta charset="utf-8">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+
+	<link rel="stylesheet" href="style.css">
+
+
+	<script data-main="scripts/config" src="scripts/lib/require.js"></script>
+	
+</head>
+
+<body>
+	<header class="center">
+		<h1>Topic 7</h1>		
+	</header>	
+
+	<div id="new-movie-container" class="container">
+		<div class="row movies">
+			<div class="col-md-12">
+				<div class="row new-movie">
+					<div class="col-md-8">
+						<input id="new-movie-title" placeholder="Title" type="text"> 
+					</div>
+
+					<div class="col-md-2">
+						<input id="new-movie-year" placeholder="Year" type="text">
+					</div>
+
+					<div class="col-md-2">
+						<button id="new-movie-button" class="btn btn-warning">Add</button>
+					</div>			
+				</div>
+
+				<div class="row">
+      		<div class="col-md-12">
+      			<ul id="movie-list" class="movie-list"></ul>
+      		</div>
+    		</div>
+
+			</div>
+		</div>		
+	</div>
+
+	<div class="instructions">
+	    <p>Double-click on movie to edit.</p>
+	    <p>Enter to save changes.</p>
+	</div>
+	
+	<footer class="center">
+		<span>© 2013 Fernando Prieto. All rights reserved.</span>		
+	</footer>
+
+	<script id="underscoreTemplate" type="text/underscoreTemplate">
+		<div class="row view">
+			
+				<div class="col-md-10">
+					<div class="info-movie">
+						<span class="glyphicon glyphicon-film"></span>
+						<span class="title">
+							<label>&nbsp;<%= title %>
+						</span>
+						<span class="year">
+							<label>( <%= year %> )</label>
+						</span>
+					</div>
+					<div class="row edit-movie hidden">
+						<div class="col-md-9">
+							<input class="edit-title" type="text" placeholder="Title" value="<%= title %>"/>
+						</div>
+
+						<div class="col-md-3">
+							<input class="edit-year" type="text" placeholder="Year" value="<%= year %>"/>
+						</div>
+					</div>		
+				</div>
+			</span>
+
+			<div class="col-md-1 col-md-offset-1">
+				<button class="delete btn btn-warning btn-xs">×</button>
+			</div>
+		</div>
+	</script>	
+</body>
+</html>
