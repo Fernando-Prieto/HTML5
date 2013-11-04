@@ -18,7 +18,7 @@
 
 <body>
 	<header class="center">
-		<h1>Topic 7</h1>		
+		<h1>Topic 7 - Backbone</h1>		
 	</header>	
 
 	<div id="new-movie-container" class="container">
@@ -60,27 +60,26 @@
 	<script id="underscoreTemplate" type="text/underscoreTemplate">
 		<div class="row view">
 			
-				<div class="col-md-10">
-					<div class="info-movie">
-						<span class="glyphicon glyphicon-film"></span>
-						<span class="title">
-							<label>&nbsp;<%= title %>
-						</span>
-						<span class="year">
-							<label>( <%= year %> )</label>
-						</span>
-					</div>
-					<div class="row edit-movie hidden">
-						<div class="col-md-9">
-							<input class="edit-title" type="text" placeholder="Title" value="<%= title %>"/>
-						</div>
-
-						<div class="col-md-3">
-							<input class="edit-year" type="text" placeholder="Year" value="<%= year %>"/>
-						</div>
-					</div>		
+			<div class="col-md-10">
+				<div class="info-movie">
+					<span class="glyphicon glyphicon-film"></span>
+					<span class="title">
+						<label>&nbsp;<%= title %>
+					</span>
+					<span class="year">
+						<label>( <%= year %> )</label>
+					</span>
 				</div>
-			</span>
+				<div class="row edit-movie hidden">
+					<div class="col-md-9">
+						<input class="edit-title" type="text" placeholder="Title" value="<%= title %>"/>
+					</div>
+
+					<div class="col-md-3">
+						<input class="edit-year" type="text" placeholder="Year" value="<%= year %>"/>
+					</div>
+				</div>		
+			</div>
 
 			<div class="col-md-1 col-md-offset-1">
 				<button class="delete btn btn-warning btn-xs">×</button>
