@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+	<title>HTML5 - Topic 7</title>
+	<meta charset="utf-8">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+
+	<link rel="stylesheet" href="style.css">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+	<script src="scripts/lib/handlebars.js"></script>
+  <script src="scripts/lib/ember.js"></script>
+  <script src="scripts/lib/ember-data.js"></script>
+  <script src="scripts/lib/localstorage_adapter.js"></script>
+  <script src="scripts/application.js"></script>
+  <script src="scripts/router.js"></script>
+  <script src="scripts/models/movie.js"></script>
+  <script src="scripts/controllers/movies_controller.js"></script>
+  <script src="scripts/controllers/movie_controller.js"></script>
+  <script src="scripts/views/edit_movie_view.js"></script>
+
+
+	
+</head>
+
+<body>
+	<header class="center">
+		<h1>Topic 7 - Ember</h1>		
+	</header>	
+	<script type="text/x-handlebars" data-template-name="movies">
+	<div id="new-movie-container" class="container">
+		<div class="row movies">
+			<div class="col-md-12">
+				<div class="row new-movie">
+					<form>
+						<div class="col-md-8">
+							{{input type="text" placeholder="Title" value=newTitle}}
+						</div>
+
+						<div class="col-md-2">
+							{{input type="text" placeholder="Title" value=newYear}}
+						</div>
+
+						<div class="col-md-2">
+							<button class="btn btn-warning" {{action createMovie}}>Add</button>
+						</div>
+					</form>			
+				</div>
+
+				<div class="row">
+      		<div class="col-md-12">
+      			<ul id="movie-list" class="movie-list">
+      				{{#each itemController="movie"}}
+      					<li>
+	      					<div class="row view">			
+										<div class="col-md-10">
+
+											{{#if isEditing}}
+
+												<div class="row edit-movie" >
+													<div class="col-md-9">														
+														{{edit-movie value=title insert-newline="acceptChanges"}}
+													</div>
+
+													<div class="col-md-3">														
+														{{edit-movie value=year insert-newline="acceptChanges"}}
+													</div>
+												</div>
+
+											{{else}}
+												
+												<div class="info-movie" {{action "editMovie" on="doubleClick"}}>
+													<span class="glyphicon glyphicon-film"></span>
+													<span class="title">
+														<label>&nbsp;{{title}}
+													</span>
+													<span class="year">
+														<label>( {{year}} )</label>
+													</span>
+												</div>	
+
+											{{/if}}	
+
+										</div>
+
+										<div class="col-md-1 col-md-offset-1">
+											<button class="delete btn btn-warning btn-xs" {{action "removeMovie"}} >×</button>
+										</div>
+									</div>
+								</li>
+      				{{/each}}
+      			</ul>
+      		</div>
+    		</div>
+
+			</div>
+		</div>		
+	</div>
+
+
+	<div class="instructions">
+	    <p>Double-click on movie to edit.</p>
+	    <p>Enter to save changes.</p>
+	</div>
+	
+	<footer class="center">
+		<span>© 2013 Fernando Prieto. All rights reserved.</span>		
+	</footer>
+
+	</script>	
+	 
+	
+</body>
+</html>
